@@ -1,19 +1,20 @@
 import random
 
+# initial value is set to zero(0)
 pre_value = 0
 
 
 # ENGLISH VERSION/영어 버전
 def guess_game_eng(limit):
-    global pre_value
+    global pre_value                                                        # take pre_value
 
     num = random.randint(1, 99)
     try:
         while limit > 0:
             print('-------------------------------')
-            guess = int(input('What is your guess? '))
+            guess = int(input('What is your guess? '))                      # asks for user input 
             limit -= 1
-            if num == guess:
+            if num == guess:                                                # if guessed correctly, exit guess_game_eng(); go to try_again_eng()   
                 print('☆★☆Congratulations, you won!☆★☆')
                 break
             elif guess > 99 or guess < 1:
@@ -44,9 +45,9 @@ def guess_game_eng(limit):
         else:
             print('Game Over!')
             print(f'The random number was {num}.')
-    except ValueError:
+    except ValueError:                                      # if input is not integer
         print('Only integers are allowed')
-        guess_game_eng(limit)
+        guess_game_eng(limit)                               # after error message, ask again
 
 
 def intro_eng():
@@ -61,22 +62,22 @@ def intro_eng():
     guess_game_eng(15)
 
 
-def try_again_eng():
+def try_again_eng():                                        # last function (regardless of winning/losing)
     print('===================================')
-    again = input('Do you want to play again? (y/n) ')
-    if again.lower() == 'y':
-        welcome()
+    again = input('Do you want to play again? (y/n) ')      # asks for user input if they want to play again
+    if again.lower() == 'y':                                
+        welcome()                                           # if y, replay game from welcome()
     elif again.lower() == 'n':
-        print('Thanks for playing! Goodbye!')
+        print('Thanks for playing! Goodbye!')               # if n, end game after message
     else:
-        print('Wrong input')
+        print('Wrong input')                                # if other input, print error message and ask again
         try_again_eng()
 
 
 # KOREAN VERSION/한국어 버전
 
 def guess_game_kor(limit):
-    global pre_value
+    global pre_value                                        # 외부에 있는 pre_value 값을 가져온다
 
     num = random.randint(1, 99)
     try:
@@ -171,4 +172,5 @@ def welcome():
         welcome()
 
 
+# start game
 welcome()
