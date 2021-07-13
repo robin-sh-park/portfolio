@@ -1,0 +1,164 @@
+/*https://zetawiki.com/wiki/HTML_div_3%EA%B0%9C_%EC%99%BC%EC%AA%BD-%EA%B0%80%EC%9A%B4%EB%8D%B0-%EC%98%A4%EB%A5%B8%EC%AA%BD_%EB%B0%B0%EC%97%B4*/
+
+body{
+	background-color: #DDC5AD;
+	color: rgb(65, 113, 156);
+	font-family: sans-serif;
+}
+
+#background{
+	border-radius: 25px;
+	background-color: rgb(240,229,220);
+	border: 2px solid rgb(65, 113, 156);
+	padding: 20px;
+	margin: 0;
+	width: 95%;
+	height: 800px;
+	/*display: table;*/
+}
+header{
+	display: block;
+}
+
+#tag_search{/*for search part of header*/
+	float: right;
+	display: flex;
+	flex-direction: row-reverse;
+	margin-left: 10px;
+}
+
+#main_body{/*left_column, middle_column, right_column*/
+	display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: stretch; /*stretch (default), center, flex-start, flex-end, baseline*/
+	/*
+  display: flex;
+	display: grid;
+  display: table;
+  grid-template-columns: 1fr 3fr 1fr;
+	display: table-cell;*/
+}
+
+a{/*for all links*/
+  text-decoration: none;
+  color: black;
+}
+
+#left_column{ /*formerly navigation_bar*/
+	/*
+  flex: 1;
+  flex-basis: 150px;
+  display: table-cell;
+  position: absolute;
+  background-color: rgb(240,229,220);
+  width: 150px;
+  float: left;
+  */
+  flex: 1;
+	list-style-type: none;
+	width: 25%;
+	height: 100%;
+	overflow-y: scroll;
+	overflow-x: visible;
+}
+
+.photo{/*border for photo*/
+  display:inline-block;
+  border-radius: 15px;
+  width: 120px;
+  height: 120px;
+  border: 1px solid rgb(65, 113, 156);
+  background-color: #DDC5AD;
+}
+
+img{/*current pfpic*/
+  display: block;
+  margin: auto;
+  width: auto;
+  padding: 10px;
+}
+
+
+
+#middle_column{/*formerly profile_field*/
+	/*
+  flex: 1;
+  display: table-cell;
+  width: 400px;
+	margin-left: 150px;
+	margin-right: 0;
+  */
+  flex: 5;
+	background-color: #FFFFFF;
+	border-radius: 15px;
+	border: 1px solid rgb(65, 113, 156);
+	margin: 0 auto;
+	padding: 10px;
+	height: 700px; /*90%*/
+	overflow-y: scroll;
+}
+
+
+form#verify_id {/*verifyTest01.html*/
+	margin: auto;
+	padding: 70px;
+	text-align: center;
+}
+
+
+
+
+  /* navigation bar */
+  .navigation_bar_preview{
+    list-style-type: none; /*removes bullet marks in list*/
+    margin: auto;  /*align center*/
+    padding: 10px;
+    width: 300px;
+    background-color: rgb(240,229,220);
+    height: 80%; /*full height is 100%*/
+    position: relative; /*make it stick, even on scroll*/
+    overflow-y: auto; /*hidden, visible, scroll, auto*/
+    overflow-x: auto;
+  }
+
+
+	figure{
+		position: relative;
+		display: block;
+		margin: auto;
+		width: 200px;
+		height: 200px;
+	}
+
+	#media_input{
+		display: block;
+		width: 200px;
+		height: 200px;
+		line-height: 200px;
+		opacity: 0;
+		position: relative;
+	}
+
+		.img-object{/*image placeholder*/
+			display: block;
+			width: 200px;
+			height: 200px;
+		}
+
+
+
+
+#right_column{/*formerly tag_list*/
+	/*flex: 1;
+  display: table-cell;
+  flex-basis: 150px;
+  float: right;
+  */
+  flex: 1;
+  width: 25%;
+  height: 80%;
+	text-align: right;
+	padding-left: 5px;
+}

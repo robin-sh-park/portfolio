@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="styledrafting04.css">
+	<title>My Info</title>
+</head>
+<body>
+
+
+  <!--배경-->
+<div id="background">
+	   <!--위에 버튼/검색 바 부분-->
+      <header>
+				<form>
+	        <button type="button" name="prev_button">뒤로</button>
+	        <button type="button" name="next_button">앞으로</button>
+					<!--"글쓰기"로 이동-->
+	        <button type="button" name="write">글 쓰기</button>
+
+					<!--검색 버튼-->
+					<input type="submit" id="tag_search" name="search" value="검색">
+					<!--검색 창-->
+	        <input type="search" id="tag_search" name="tag_search" placeholder="키워드 검색...">
+
+				</form>
+      </header>
+			<hr> <!--horizontal line-->
+			<!--END HEADER-->
+			
+	<div id="main_body">
+      <!--COLUMN 1: 내비게이션 바/현재 프로필 표시 바-->
+      <div id="left_column">
+        <div class="photo">
+          <img src="jebsy.jpg"> <!-- 현재 프로필 사진 -->
+        </div>
+
+        <p>닉네임</p>
+        <button type="button" name="my_info">내 정보</button>
+        <p>status...</p>
+				<br>
+				<br>
+				<br>
+        <p>생년월일</p>
+        <p>성별</p>
+        <p>email</p>
+      </div><!--end tag for left_column-->
+      <!--END COLUMN 1-->
+
+      <!--COLUMN 2: 개인정보 수정 필드-->
+      <div id="middle_column" >
+        <header>
+          <h5>프로필을 수정할 수 있습니다</h5>
+          <hr> <!--horizontal line-->
+        </header>
+
+
+        <div class="navigation_bar_preview">
+          <!--profile pic preview-->
+					<figure class="media-object">
+		        	<img class="img-object" src="http://placehold.it/200x200">
+		       </figure>
+					 <br>
+					 <br>
+			<form method="post"> <!-- action="get" -->
+		        <label for="pfpic">프로필 사진 업로드: </label>
+		        <input type="file" id="media-input" name="pfpic" accept="image/*">
+
+				<table>
+		       <tr>
+			          <td><label for="nickname">닉네임: </label></td>
+			          <td><input type="text" name="nickname" size="27"></td>
+		       </tr>
+		       <tr>
+		        		<td><label for="email">이메일: </label></td>
+		            <td><input type="email" id="email" name="email" size="27"></td>
+		       </tr>
+		       <tr>
+		            <td><label for="password">비밀번호: </label></td>
+		            <td><input type="password" id="password" name="password" size="27"></td>
+		       </tr>
+		       <tr>
+		         		<td><label for="birthday">생년월일: </label></td>
+		         		<td><input type="date" id="birthday" name="birthday" size="27"></td>
+		       </tr>
+		       <tr>
+							<td><label for="gender">성별:</label></td>
+							<td>
+	  						<select id="gender" name="gender" size="1">
+	  							<option value="" disabled selected>선택...</option>
+	  							<option value="male">남자</option>
+	  							<option value="female">여자</option>
+	  							<option value="notShown">표시 안함</option>
+	  						</select>
+							</td>
+					</tr>
+					<tr>
+						<td><label for="status">상태 메세지:</label></td>
+						<td><textarea name="status" rows="3" cols="20"></textarea></td>
+					</tr>
+					<tr align="center">
+						<td><input type="reset" name="reset" value="reset"></td>
+						<td><input type="submit" name="저장" value="저장"></td>
+					</tr>
+				</table>
+			</form>
+	        </div><!--end tag for navigation_bar_preview-->
+
+        </div><!--end tag for div middle_column-->
+        <!--END COLUMN 2-->
+
+
+          <!--COLUMN 3: hashtag list-->
+          <div id="right_column">
+            <h3>TAG</h3>
+            <a href="#a">#오늘날씨</a>
+            <a href="#b">#음악</a>
+            <a href="#c">#오늘의_메뉴</a>
+          </div><!--end tag for div right_column-->
+          <!--END COLUMN 3-->
+
+
+  </div><!--end tag for div main_body-->
+</div><!--end tag for div background-->
+
+</body>
+</html>
