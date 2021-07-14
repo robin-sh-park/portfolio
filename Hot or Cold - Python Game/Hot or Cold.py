@@ -91,34 +91,44 @@ def guess_game_kor(limit):
     try:
         while limit > 0:
             print('-------------------------------')
-            guess = int(input('숫자를 입력하세요: '))
-            limit -= 1
+            guess = int(input('숫자를 입력하세요: '))                  # 입력값을 가져온다
+            limit -= 1                                               # 값을 입력할 때 마다 기회가 1씩 줄어든다
             if num == guess:
-                print('☆★☆축하합니다, 게임에서 이겼습니다!☆★☆')
+                print('☆★☆축하합니다, 게임에서 이겼습니다!☆★☆')       # 맞혔을 경우 문장 print 후 빠져나오기; try_again_kor()로 이동
                 break
-            elif guess > 99 or guess < 1:
+            elif guess > 99 or guess < 1:                               # 입력값이 1 ~ 99 범위를 벗어난 경우 다시 물어보기
                 print('Guess is out of range')
                 guess_game_kor(limit)
+                
+                # guess가 num과 많이 가까워진 경우 
             elif limit < 14 and ((num < guess <= num + 5) or (num > guess >= num - 5)):
                 print('Getting VERY HOT!')
                 print('많이 가까워졌어요!!')
                 print(" ")
                 print(f'{limit}번의 기회가 있습니다.')
+                
+                # guess가 num과 너무 멀어진 경우 
             elif limit < 14 and (guess > (num + 25) or guess < (num - 25)):
                 print("That's TOO COLD!")
                 print("너무 멀어졌어요!!")
                 print(" ")
                 print(f'{limit}번의 기회가 있습니다.')
+                
+                # guess가 이전 값(pre_value) 보다 num에 더 가까워진 경우 
             elif limit < 14 and ((pre_value < guess < num) or (num < guess < pre_value)):
                 print('Getting Hotter!')
                 print('더 가까워졌어요!')
                 print(" ")
                 print(f'{limit}번의 기회가 있습니다.')
+                
+                # guess가 이전 값(pre_value) 보다 num에 더 멀어진 경우 
             elif limit < 14 and ((guess < pre_value < num) or (num < pre_value < guess)):
                 print('Getting Colder...')
                 print('더 멀어졌어요...')
                 print(" ")
                 print(f'{limit}번의 기회가 있습니다.')
+                
+                # 첫 입력값 후 표시되는 값들 
             elif (num < guess < num + 10) or (num > guess > num - 10):
                 print('HOT')
                 print(" ")
@@ -140,7 +150,7 @@ def guess_game_kor(limit):
         guess_game_kor(limit)
 
 
-def intro_kor():
+def intro_kor():                                                    # 본 게임 시작 전 출력되는 문장; 게임 설명
     print('==================================================')
     print('숫자 맟히는 게임, "Hot or Cold"!')
     print('==================================================')
@@ -149,18 +159,18 @@ def intro_kor():
     print('멀지 않고 가깝지 않으면 "Warm"이 출력됩니다.')
     print('-------------------------------------------------------------')
     print('1과 99사이 숫자를 랜덤으로 선택하고, 15 번의 숫자 맞힐 기회가 있습니다')
-    guess_game_kor(15)
+    guess_game_kor(15)                                              # 본 게임 function (guess_game_kor(기회 수))
 
 
-def try_again_kor():
+def try_again_kor():                                                # 본 게임이 끝난 후, 이겼는지 졌는지 결과와 상관없이 출력되는 문장
     print('=====================================')
-    again = input('게임 다시 하시겠습니까? (y/n) ')
-    if again.lower() == 'y':
-        welcome()
+    again = input('게임 다시 하시겠습니까? (y/n) ')                    # 게임을 다시 하겠냐고 물어본다
+    if again.lower() == 'y':                      
+        welcome()                                                   # y 일 경우 welcome() 부터 다시 시작
     elif again.lower() == 'n':
-        print('Thanks for playing! Goodbye!')
+        print('Thanks for playing! Goodbye!')                       # n 일 경우 문장 출력 후 종료
     else:
-        print('입력을 잘못하셨습니다.')
+        print('입력을 잘못하셨습니다.')                                # 그 외 값이 입력되면 오류 메세지 표시 후 다시 질문
         try_again_kor()
 
 
