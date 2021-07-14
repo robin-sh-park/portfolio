@@ -17,21 +17,27 @@ def guess_game_eng(limit):
             if num == guess:                                                # if guessed correctly, exit guess_game_eng(); go to try_again_eng()   
                 print('☆★☆Congratulations, you won!☆★☆')
                 break
-            elif guess > 99 or guess < 1:
+            elif guess > 99 or guess < 1:                                   # if out of range, print error message
                 print('Guess is out of range')
                 guess_game_eng(limit)
+                
+                # if guess is too far from num
             elif limit < 14 and ((num < guess <= num + 5) or (num > guess >= num - 5)):
                 print('Getting VERY HOT!')
                 print(f'You have {limit} guess(es) left')
             elif limit < 14 and (guess > (num + 25) or guess < (num - 25)):
                 print("That's TOO COLD!")
                 print(f'You have {limit} guess(es) left')
+                
+                # if guess is getting closer/further compared to pre_value (previous guess)
             elif limit < 14 and ((pre_value < guess < num) or (num < guess < pre_value)):
                 print('Getting Hotter!')
                 print(f'You have {limit} guess(es) left')
             elif limit < 14 and ((guess < pre_value < num) or (num < pre_value < guess)):
                 print('Getting Colder...')
                 print(f'You have {limit} guess(es) left')
+                
+                # first hint after first input
             elif (num < guess < num + 10) or (num > guess > num - 10):
                 print('HOT')
                 print(f'You have {limit} guess(es) left')
@@ -41,8 +47,10 @@ def guess_game_eng(limit):
             elif (num + 10 <= guess <= num + 20) or (num - 5 >= guess >= num - 20):
                 print('Warm')
                 print(f'You have {limit} guess(es) left')
+                
+            # after guess, put guess value into pre_value variable
             pre_value = guess
-        else:
+        else:                                               # if run out of tries, print 'Game Over' and the set random number
             print('Game Over!')
             print(f'The random number was {num}.')
     except ValueError:                                      # if input is not integer
@@ -50,7 +58,7 @@ def guess_game_eng(limit):
         guess_game_eng(limit)                               # after error message, ask again
 
 
-def intro_eng():
+def intro_eng():                                            # prints rules of game
     print('==================================================')
     print('Welcome to "Hot or Cold", a number guessing game!')
     print('==================================================')
